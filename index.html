@@ -1,15 +1,19 @@
-Hello World
-<button onclick="showContent()">Show hidden content</button>
+This is Zhipeng's webpage
 
 <template>
-  <h2>Flower</h2>
-  <img src="img_white_flower.jpg" width="214" height="204">
+  <div class="myClass">I like: </div>
 </template>
 
 <script>
+var myArr = ["Audi", "BMW", "Ford", "Honda", "Jaguar", "Nissan"];
 function showContent() {
-  var temp = document.getElementsByTagName("template")[0];
-  var clon = temp.content.cloneNode(true);
-  document.body.appendChild(clon);
+  var temp, item, a, i;
+  temp = document.getElementsByTagName("template")[0];
+  item = temp.content.querySelector("div");
+  for (i = 0; i < myArr.length; i++) {
+    a = document.importNode(item, true);
+    a.textContent += myArr[i];
+    document.body.appendChild(a);
+  }
 }
 </script>
